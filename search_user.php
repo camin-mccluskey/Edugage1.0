@@ -2,9 +2,6 @@
 //start session for later
 session_start();
 
-//connect to db
-include ("server_connect.php");
-
 //get search parameters from admin_homepage.html
 	$firstname	= $_POST["First_Name"];
 	$surname	= $_POST["Surname"];
@@ -50,7 +47,7 @@ $values .= $value1 .= $value2 .= $value3 .= $value4 .= $value5;
 
 //query the table
 
-$query = "SELECT * FROM $usertype WHERE id != 0 $values";
+$query = "SELECT * FROM login WHERE id != 0 $values";
 $_SESSION['query'] = $query;
 header("Location: admin_homepage_searched_user.php");
 ?>

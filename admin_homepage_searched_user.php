@@ -126,6 +126,7 @@ session_start();
 <?php
 // connect to the db
  include ("connect.php");
+ mysqli_select_db($connection,"login");
 
 //query the database
 $query = $_SESSION['query'];
@@ -135,7 +136,7 @@ $numrows = mysqli_num_rows($result);
 // display values in table
 	if($result) {
     echo '<table width ="100%" cellpadding="5px" cellspacing="5px" class="db-table">';
-    echo '<tr><th>ID</th><th>First Name</th><th>Surname</th><th>Username</th><th>Year</th><th>Form</th></tr>';
+    echo '<tr><th>ID</th><th>First Name</th><th>Surname</th><th>Username</th><th>User Type</th><th>Year</th><th>Form</th></tr>';
       for ($i = 0; $i < $numrows; $i++) {
         $row = mysqli_fetch_assoc($result);
         $username = $row['username'];
@@ -144,6 +145,7 @@ $numrows = mysqli_num_rows($result);
       <td>" . $row['first_name'] . "</td>
       <td>" . $row['surname'] . "</td>
       <td>" . $row['username'] . "</td>
+      <td>" . $row['usertype'] . "</td>
       <td>" . $row['year'] . "</td>
       <td>" . $row['form'] . "</td></tr>";
 }
