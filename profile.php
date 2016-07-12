@@ -16,7 +16,7 @@ set_time_limit (60);
 
 <?php
 $usertype = $_SESSION['usertype'];
-if ($usertype == "students") {
+if ($usertype == "student") {
 
 // Generate Student Profile Page
   $sql = "SELECT * FROM students WHERE username = '$login_session'";
@@ -117,10 +117,10 @@ if ($usertype == "students") {
   else echo "Couldn't Fetch User Data";
 }
 
-else if ($usertype == "teachers") {
+else if ($usertype == "teacher") {
 echo "<br> <a href='createquiz_1.php'> Create Quiz </a>";
 }
-else if ($usertype == "administrators") {
+else if ($usertype == "administrator") {
 echo "<br> <a href = 'admin_homepage.html'> Create or Search User";
 }
 else {
