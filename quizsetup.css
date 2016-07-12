@@ -1,0 +1,19 @@
+
+<style media="screen">
+  .QandA {
+    border: 1px ridge black;
+    background: #ffffff;
+    background: -moz-linear-gradient(45deg,  #ffffff 0%, #f1f1f1 50%, #e1e1e1 51%, #f6f6f6 100%);
+    background: -webkit-linear-gradient(45deg,  #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%);
+    background: linear-gradient(45deg,  #ffffff 0%,#f1f1f1 50%,#e1e1e1 51%,#f6f6f6 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=1 );
+    margin: 1%;
+  }
+  input {
+    width: 50%;
+    margin: 2%;
+  }
+  #essayanswer {
+    resize: both;
+  }
+</style>

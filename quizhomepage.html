@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Search for Quizes</title>
+  </head>
+<body>
+<h1>Search For Quizes</h1>
+  <form id = "searchquiz" action="retrievequiz.php" method="POST" >
+
+    <input type="text" name = "quiztitle" placeholder="Search by Quiz Title" required>
+    <input type="text" name = "teachername" placeholder="Search by Teacher" required>
+
+    <select name = "quiztype"  form = "searchquiz" required>
+      <option value="multiple choice">Multiple Choice</option>
+      <option value="single answer">Single Answer</option>
+      <option value="essay">Essay</option>
+    </select>
+
+    <input type="submit" value="Search">
+ </form>
+</body>
+</html>
