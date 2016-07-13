@@ -2,7 +2,6 @@
 include('connect.php');
 include('session.php');
 set_time_limit (60);
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,10 +16,10 @@ set_time_limit (60);
 <?php
 $usertype = $_SESSION['usertype'];
 if ($usertype == "student") {
-include 'studentprofile.php';
+include('studentprofile.php');
 }
 else if ($usertype == "teacher") {
-echo "<br> <a href='createquiz.php'> Create Quiz </a>";
+include('teacherprofile.php');
 }
 else if ($usertype == "administrator") {
 echo "<br> <a href = 'admin_homepage.html'> Create or Search User";
