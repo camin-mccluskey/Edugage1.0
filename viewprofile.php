@@ -8,29 +8,26 @@
   <body>
 <?php
     include 'connect.php';
-    // Fetches data regarding name username etc rom login table
+    mysqli_select_db($connection,"login");
+    // Fetches data regarding name username etc from login table
     $username = $_COOKIE['username'];
     $sql = "SELECT * FROM login WHERE username = '$username'";
     $query = mysqli_query($connection,$sql);
-    $rows = mysqli_fetch_assoc($query);
-    $usertype = $rows['usertype'];
-    $usertypetable = $usertype . "s";
-
-    // Fetches data regarding class year etc
-    $sql = "SELECT * FROM $usertypetable WHERE username = '$username'";
-    $query = mysqli_query($connection,$sql);
     $user = mysqli_fetch_assoc($query);
 
+    // Define the type of user
+    $usertype = $user['usertype'];
+
     // Fetches data to do with past quiz performances
-    $sql = "SELECT * FROM $username";
-    $query = mysqli_query($connection,$sql);
-    $quiznum = mysqli_num_rows($query);
+  //  $sql = "SELECT * FROM $username";
+    //$query = mysqli_query($connection,$sql);
+    // $quiznum = mysqli_num_rows($query);
 
 // edirect to different types of profile based on usertype
 if ($query) {
     if ($usertype == "student") {
       echo "<h1> Welcome ". $user['first_name'] . " " . $user['surname'] . "</h1>";
-      // load up data on test results
+      /* load up data on test results - when i sort this databse
       echo "<h3>Test Results </h3>
       <table>
             <tr>
@@ -49,19 +46,21 @@ if ($query) {
       }
     }
     echo "</table>";
+    */
+} // this bracket needs removed when quiz db is sorted
 
-    if ($usertype == "teacher") {
+    else if ($usertype == "teacher") {
       echo "<h1> Welcome ". $user['first_name'] . " " . $user['surname'] . "</h1>";
       echo "you are a teacher";
-      
+
   }
-
-
-    if ($usertype == "administrator") {
+    else if ($usertype == "administrator") {
       echo "<h1> Welcome ". $user['first_name'] . " " . $user['surname'] . "</h1>";
       echo "you are a administrator";
     }
-
+    else {
+      echo "usertype undefined";
+    }
 }
 ?>
   </body>
