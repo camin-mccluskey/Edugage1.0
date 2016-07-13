@@ -14,17 +14,18 @@ $quiz_start = time();
 $_SESSION['quizstart'] = $quiz_start;
 // Retrieve selected quiz data
 $id = $_COOKIE['id'];
-$sql = "SELECT * FROM quizes WHERE id = $id";
+mysqli_select_db($connection, "quizes");
+$sql = "SELECT * FROM master_list WHERE id = $id";
 $result = mysqli_query($connection, $sql);
 $result = mysqli_fetch_assoc($result);
-$quizname =  $result['quiz_name'];
-$quiztype = $result['quiz_type'];
+$quizname =  $result['name'];
+$quiztype = $result['type'];
 
 //if quiz in single answer type
 if ($quiztype == 'single answer') {
 echo "<h1>" . $quizname . "</h1>";
 //Fetch Question and Answer pairs
-$quizname = str_replace(" ","_",$quizname); // Inserts underscores to search quiz
+$quizname = str_replace(" ", "_", $quizname); // Inserts underscores to search quiz
 $sql = "SELECT * FROM $quizname";
 $query = mysqli_query($connection, $sql);
 
@@ -48,6 +49,9 @@ $numrows = mysqli_num_rows($query);
 // if quiz is multiple choice
 elseif ($quiztype == 'multiple choice') {
   echo "multiple choice";
+}
+else {
+  echo "error";
 }
 ?>
 <!-- Loads script that takes inputs and checks answers against db to return sucess or failure icons -->

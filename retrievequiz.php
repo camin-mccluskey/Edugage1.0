@@ -3,6 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>Find a Quiz</title>
+      <style media="screen">
+        #entry:hover {
+          background-color: blue;
+        }
+      </style>
   </head>
   <body>
     <?php
@@ -12,11 +17,35 @@
     $teachername = $_POST['teachername'];
     $quiztype = $_POST['quiztype'];
 
+    // Make a search query
+    $values = "";
+    if (!empty($quiztitle)) {
+    	$value1  = " AND name = '$quiztitle' ";
+    }
+    else {
+    	$value1 = "";
+    }
+    if (!empty($teachername)) {
+    	$value2 = " AND  teacher = '$teachername' ";
+    }
+    else {
+    	$value2 = "";
+    }
+    if (!empty($quiztype)) {
+    	$value3 = " AND type = '$quiztype' ";
+    }
+    else {
+    	$value3 = "";
+    }
+
+    $values .= $value1 .= $value2 .= $value3;
+
 echo $quiztitle;
     // Retrieve Questions from Quiz db
-    $sql = "SELECT * FROM quizes WHERE quiz_name = '$quiztitle' OR quiz_type = '$quiztype' OR teacher_name = '$teachername'";
+    mysqli_select_db($connection, "quizes");
+    $sql = "SELECT * FROM master_list WHERE id != 0 $values";
     $query = mysqli_query($connection, $sql);
-
+    if ($query) {
     // Present quizes as clickable links
     $numrows = mysqli_num_rows($query);
     echo "<table>
@@ -30,14 +59,18 @@ echo $quiztitle;
     for ($i = 0; $i < $numrows +1; $i++) {
     $result = mysqli_fetch_assoc($query);
     $id = $result['id'];
-    echo "<tr onclick = \"selectentry($id)\">
-    <td>" . $result['quiz_name'] . "</td>
-    <td>" . $result['quiz_type'] . "</td>
+    echo "<tr id = 'entry' onclick = \"selectentry($id)\">
+    <td>" . $result['name'] . "</td>
+    <td>" . $result['type'] . "</td>
     <td>" . $result['no_questions'] . "</td>
     <td>" . $result['time_limit'] . "</td>
-    <td>" . $result['teacher_name'] . "</td>";
+    <td>" . $result['teacher'] . "</td>";
 }
     echo "</table>";
+}
+  else {
+    echo "No Quiz exists";
+  }
      ?>
 <script type="text/javascript">
   function selectentry(id) {

@@ -1,14 +1,16 @@
 <?php
 // Retreive number of questions to cycle through each and save result to db
+
 $id = $_COOKIE['id'];
 include 'connect.php';
+mysqli_select_db($connection,"quizes");
 session_start();
-$sql = "SELECT * FROM quizes WHERE id = $id";
+$sql = "SELECT * FROM master_list WHERE id = $id";
 $query = mysqli_query($connection,$sql);
 $result  = mysqli_fetch_assoc($query);
 $numquestions = $result['no_questions'];
 // insert _ in place of spaces for db search
-$x = $result['quiz_name'];
+$x = $result['name'];
 $quizname = str_replace(" ", "_", $x);
 
 $pupil = $_SESSION['login_user'];
@@ -38,9 +40,11 @@ $time_post = time();
 $time_pre = $_SESSION['quizstart'];
 $time_taken = $time_post - $time_pre;
 
-//enter final score into pupil database
+// enter final score into pupil quiz result database
 $quizname = str_replace("_", " ", $quizname);
-$sql = "INSERT INTO $pupil (id, quiz_name, score, time_taken) VALUES (NULL, '$quizname','$finalscore', '$time_taken')";
+// change to user data base
+mysqli_select_db($connection,$pupil);
+$sql = "INSERT INTO quiz_results (quiz_name, score, time_taken) VALUES ('$quizname','$finalscore', '$time_taken')";
 $query = mysqli_query($connection,$sql);
   if ($query) {
     echo "Your score was " . $score . " out of " . $numquestions . " = " . $finalscore . " % <br>";
@@ -49,4 +53,4 @@ $query = mysqli_query($connection,$sql);
   else {
     echo "Your score was not registered";
 }
- ?>
+?>

@@ -1,6 +1,7 @@
 //Browser Support Code
 
 function checkanswers(answers,question_no,quizname) {
+alert(answers question_no quizname);
 
 var ajaxRequest;  // The variable that makes Ajax possible!
   try {
@@ -25,7 +26,7 @@ var ajaxRequest;  // The variable that makes Ajax possible!
     }
   }
 
-  /* Create a function that will receive data sent from the
+  /*Create a function that will receive data sent from the
   server and will update answer confirm section in the same page. */
 
       ajaxRequest.onreadystatechange = function(){

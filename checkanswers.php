@@ -5,8 +5,11 @@ $answer = $_GET["answer"];
 $question_no = $_GET["question_no"];
 $quizname = $_GET['quizname'];
 
+$quizname = str_replace(" ", "_", $quizname);
+
 //query quiz table to find correct answer, compare with user inputted $answer
 include 'connect.php';
+mysqli_select_db($connection,"quizes")
 $sql = "SELECT answer FROM $quizname WHERE question_number = $question_no";
 $query = mysqli_query($connection, $sql);
 
