@@ -28,8 +28,8 @@ if ($usertype == "student") {
 
     // Fetches data to do with past quiz performances
     $username = $user['username'];
-    echo $username; // this change
-    $sql = "SELECT * FROM $username"; //HERE IS THE ISSUE
+    mysqli_select_db($connection, $username);
+    $sql = "SELECT * FROM quiz_results";
     $query = mysqli_query($connection,$sql);
     $quiznum = mysqli_num_rows($query);
 
@@ -119,7 +119,7 @@ else {
 }
 }
 else if ($usertype == "teacher") {
-echo "<br> <a href='createquiz_1.php'> Create Quiz </a>";
+echo "<br> <a href='createquiz.php'> Create Quiz </a>";
 }
 else if ($usertype == "administrator") {
 echo "<br> <a href = 'admin_homepage.html'> Create or Search User";

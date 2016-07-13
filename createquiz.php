@@ -1,6 +1,6 @@
 <?php
 include('session.php');
-include 'quiz.php';
+include ('quiz.php');
 ?>
 <!DOCTYPE html>
 <html>

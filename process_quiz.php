@@ -7,10 +7,9 @@ session_start();
   $timelimit = $_SESSION['time_limit'];
   $no_choices = $_SESSION['no_choices'];
 
-  echo $no_choices;
-
 // Create new table $quizname to store questions and answers
 include 'connect.php';
+mysqli_select_db($connection,"quizes");
 
 // for single answer or essay style
 if ($no_choices == 0) {

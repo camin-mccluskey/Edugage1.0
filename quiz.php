@@ -20,6 +20,7 @@ $user_check = $_SESSION['login_user'];
 
 // Establishing Connection with Server by passing server_name, user_id and password as a parameter
 include 'connect.php';
+mysqli_select_db($connection,"quizes");
 
 // To protect MySQL injection for Security purpose
 $quiztitle = stripslashes($quiztitle);
@@ -32,13 +33,13 @@ $no_questions = mysqli_real_escape_string($connection, $no_questions);
 $timelimit = mysqli_real_escape_string($connection, $timelimit);
 
 // To avoid quizes of the same name
-$sql = "SELECT * FROM quizes WHERE quiz_name = '$quiztitle'";
+$sql = "SELECT * FROM master_list WHERE name = '$quiztitle'";
 $query = mysqli_query($connection, $sql);
 $rows = mysqli_num_rows($query);
 
 if ($rows == 0) {
 // Insert new quiz entry into quizes db
-  $sql = "INSERT INTO quizes (id, quiz_name, quiz_type, no_questions, time_limit, teacher_name)
+  $sql = "INSERT INTO master_list (id, name, type, no_questions, time_limit, teacher)
   VALUES (NULL, '$quiztitle','$quiztype','$no_questions','$timelimit', '$user_check')";
   $query = mysqli_query($connection, $sql);
 

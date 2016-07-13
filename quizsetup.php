@@ -1,4 +1,4 @@
-<!-- page for suer to enter quiz questions and answers-->
+<!-- page for user to enter quiz questions and answers-->
 <?php
 // Declare Variables
 session_start();
