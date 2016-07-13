@@ -5,14 +5,14 @@ session_start();
   $no_questions = $_SESSION['no_questions'];
   $quiztitle = $_SESSION['quiz_title'];
   $timelimit = $_SESSION['time_limit'];
-  $no_choices = $_SESSION['no_choices'];
+  
 
 // Create new table $quizname to store questions and answers
 include 'connect.php';
 mysqli_select_db($connection,"quizes");
 
 // for single answer or essay style
-if ($no_choices == 0) {
+if (!isset($_SESSION['no_choices'])) {
 $quiztitle = str_ireplace(" ", "_", $quiztitle); // Replaces spaces with underscores so the quiztitle can be used in db
 $sql = "CREATE TABLE $quiztitle (question_number INT(20) AUTO_INCREMENT NOT NULL PRIMARY KEY,
 question VARCHAR(45) NOT NULL,
