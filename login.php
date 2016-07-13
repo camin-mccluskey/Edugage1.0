@@ -26,7 +26,7 @@ $password = mysqli_real_escape_string($connection, $password);
 // SQL query to fetch information of registerd users and finds user match.
 $query = mysqli_query($connection, "SELECT * FROM login WHERE password='$password' AND username='$username'");
 $rows = mysqli_num_rows($query);
-if ($rows == 1) {
+if ($rows > 0) {
 $_SESSION['login_user'] = $username; // Initializing Session
 
 $row = mysqli_fetch_assoc($query);

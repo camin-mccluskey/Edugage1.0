@@ -19,7 +19,7 @@ $usertype = $_SESSION['usertype'];
 if ($usertype == "student") {
 
 // Generate Student Profile Page
-  $sql = "SELECT * FROM students WHERE username = '$login_session'";
+  $sql = "SELECT * FROM login WHERE username = '$login_session'";
   $query = mysqli_query($connection, $sql);
   if ($query) {
     $user = mysqli_fetch_assoc($query);
@@ -28,7 +28,8 @@ if ($usertype == "student") {
 
     // Fetches data to do with past quiz performances
     $username = $user['username'];
-    $sql = "SELECT * FROM $username";
+    echo $username; // this change
+    $sql = "SELECT * FROM $username"; //HERE IS THE ISSUE
     $query = mysqli_query($connection,$sql);
     $quiznum = mysqli_num_rows($query);
 
@@ -113,10 +114,10 @@ if ($usertype == "student") {
       var MyNewChart = new Chart(ctx).Line(data, options);
     </script>";
   }
-
-  else echo "Couldn't Fetch User Data";
+else {
+  echo "couldnt fetch user data";
 }
-
+}
 else if ($usertype == "teacher") {
 echo "<br> <a href='createquiz_1.php'> Create Quiz </a>";
 }

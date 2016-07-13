@@ -61,9 +61,9 @@ session_start();
 	<label> User Type </label>
 	<div class="form-group">
     <select name="User_Type">
-		<option value="students">Student</option>
-		<option value="teachers">Teacher</option>
-		<option value="administrators">Administrator</option>
+		<option value="student">Student</option>
+		<option value="teacher">Teacher</option>
+		<option value="administrator">Administrator</option>
 	</select>
     </div>
 	<label> Year </label>
