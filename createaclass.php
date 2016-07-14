@@ -1,10 +1,10 @@
 <?php
 // Retrieved from teacherprofile.php
-$classname = $_POST['class_name'];
+$classname_withspaces = $_POST['class_name'];
 $subject = $_POST['subject'];
 
 // Remove whitespace from Class Name
-$classname = str_replace(" ","_",$classname);
+$classname = str_replace(" ","_",$classname_withspaces);
 
 // Commit this class to the teacher class list table
 // Fetch username
@@ -25,3 +25,5 @@ if ($query) {
   echo "Class Created";
 }
  ?>
+ <h1>Add Students to Class: <?php echo " " . $classname_withspaces ?></h1>
+ 
