@@ -16,7 +16,8 @@ include 'connect.php';
 mysqli_select_db($connection,$teachername);
 $sql = "INSERT INTO classlist (id, name, subject) VALUES (NULL, '$classname', '$subject')";
 $query = mysqli_query($connection,$sql) ;
-// If class is commited to class list then create its own entry under the teachername
+// If class is commited to class list then create its own entry in the classes DB
+mysqli_select_db($connection,"classes");
 if ($query) {
   $sql = "CREATE TABLE $classname (id INT(20) AUTO_INCREMENT NOT NULL PRIMARY KEY,
   first_name VARCHAR(45) NOT NULL, surname VARCHAR(45) NOT NULL, username VARCHAR(45) NOT NULL)";
