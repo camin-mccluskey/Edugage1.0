@@ -30,15 +30,34 @@ if ($query) {
  <form>
  Search Students: <input type="text" onkeyup="showHint(this.value)">
  </form>
- <p>Suggestions: <span id="txtHint"></span></p>
 
+ <!--Area for students to be displayed -->
+ <p><span id="txtHint">
+<?php
+// Display all students intially
+  mysqli_select_db($connection, "login");
+  $sql = "SELECT * FROM login WHERE usertype = 'student'";
+  $query = mysqli_query($connection,$sql) or die("Error Connecting to database");
+  // Echo out table
+  echo "<table>
+        <tr> <th>ID</th> <th>Username</th> <th>First Name</th> <th>Surname</th> <th>Year</th> <th>Form</th> </tr>";
+  while ($entries = mysqli_fetch_assoc($query)){
+    echo "<tr>
+          <td>" . $entries['id'] . "</td>
+          <td>" . $entries['username'] . "</td>
+          <td>" . $entries['first_name'] . "</td>
+          <td>" . $entries['surname'] . "</td>
+          <td>" . $entries['year'] . "</td>
+          <td>" . $entries['form'] . "</td>
+          </tr>";
+  }
+  echo "</table>";
+ ?>
+ </span></p>
 
+<!--Make this an external script -->
  <script>
  function showHint(str) {
-     if (str.length == 0) {
-         document.getElementById("txtHint").innerHTML = "";
-         return;
-     } else {
          var xmlhttp = new XMLHttpRequest();
          xmlhttp.onreadystatechange = function() {
              if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -48,15 +67,5 @@ if ($query) {
          xmlhttp.open("GET", "gethint.php?q=" + str, true);
          xmlhttp.send();
      }
- }
  </script>
-
- <!-- add search code here -->
- <<?php
-  mysqli_select_db($connection, "login");
-  $sql = "SELECT * FROM login WHERE usertype = 'student'";
-  $query = mysqli_query($connection,$sql);
-    if ($query) {
-        $numrows = mysqli_num_rows($query);
-    }
  ?>
