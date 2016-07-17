@@ -1,4 +1,6 @@
 <?php
+// For plus sign on table
+include 'bootstrap.html';
 // Retrieved from teacherprofile.php
 $classname_withspaces = $_POST['class_name'];
 $subject = $_POST['subject'];
@@ -25,10 +27,10 @@ if ($query) {
   echo "Class Created";
 }
  ?>
- <!-- Search bar sends ajax request-->
+ <!-- Search bar sends ajax request with value of search and quizname for later use-->
  <h1>Add Students to Class: <?php echo " " . $classname_withspaces ?></h1>
  <form>
- Search Students: <input type="text" onkeyup="showHint(this.value)">
+ Search Students: <input type="text" onkeyup="showHint(this.value,'<?php echo $classname; ?>')">
  </form>
 
  <!--Area for students to be displayed -->
@@ -49,6 +51,7 @@ if ($query) {
           <td>" . $entries['surname'] . "</td>
           <td>" . $entries['year'] . "</td>
           <td>" . $entries['form'] . "</td>
+          <td><span class = 'glyphicon glyphicon-plus' onclick = \"addstudent($entries[id],'$classname')\"</span></td>
           </tr>";
   }
   echo "</table>";
@@ -57,15 +60,17 @@ if ($query) {
 
 <!--Make this an external script -->
  <script>
- function showHint(str) {
+ function showHint(str,classname) {
          var xmlhttp = new XMLHttpRequest();
          xmlhttp.onreadystatechange = function() {
              if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                  document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
              }
          };
-         xmlhttp.open("GET", "gethint.php?q=" + str, true);
+
+         xmlhttp.open("GET", "gethint.php?q=" + str + "&classname=" + classname, true);
          xmlhttp.send();
      }
  </script>
- ?>
+ <script type="text/javascript" src = "addstudenttoclass.js">
+ </script>
