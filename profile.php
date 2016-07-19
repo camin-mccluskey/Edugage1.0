@@ -7,10 +7,16 @@ set_time_limit (60);
 <html>
 <head>
 <title>Your Home Page</title>
+<style media="screen">
+  .classEntry:hover {
+    border: 1px red solid;
+  }
+</style>
 </head>
 <body>
+  <div class="container-fluid">
 <div id="profile">
-<b id="welcome"> User : <i><?php echo $login_session; ?></i></b>
+<b id="welcome"> User : <i><?php echo $login_session; ?></i></b><br>
 <b id="logout"><a href="logout.php">Log Out</a></b>
 
 <?php
@@ -28,6 +34,7 @@ else {
   echo "Error";
 }
 ?>
+</div>
 </div>
 </body>
 </html>

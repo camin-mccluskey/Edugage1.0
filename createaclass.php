@@ -58,6 +58,10 @@ if ($query) {
  ?>
  </span></p>
 
+ <p>
+   <span id="studentAdded"></span>
+ </p>
+
 <!--Make this an external script -->
  <script>
  function showHint(str,classname) {
@@ -72,5 +76,6 @@ if ($query) {
          xmlhttp.send();
      }
  </script>
+ <!--Script loads the addstudent function on glyphicon press -->
  <script type="text/javascript" src = "addstudenttoclass.js">
  </script>

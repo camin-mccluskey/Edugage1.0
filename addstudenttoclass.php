@@ -22,13 +22,23 @@ mysqli_select_db($connection,"classes");
 // Check that only one user is selected (hopefully unnessecary), then add that user to the class
 $numrows = mysqli_num_rows($query);
 if ($numrows == 1) {
-  $sql = "INSERT INTO $classname (id,first_name,surname,username) VALUES ($id, '$firstname', '$surname', '$username')";
-  $query = mysqli_query($connection,$sql);
-    if ($query) {
-      echo "Student - " . $student['first_name'] . " " . $student['surname'] . " " . "was added to class";
-    } else {
-      echo "Error: student could not be added to class";
+
+// First check student isnt already in class to avoid double entries
+$sql = "SELECT * FROM $classname WHERE id = $id";
+$query = mysqli_query($connection,$sql);
+$userpresent = mysqli_num_rows($query);
+  if ($userpresent == 0) {
+    $sql = "INSERT INTO $classname (id,first_name,surname,username) VALUES ($id, '$firstname', '$surname', '$username')";
+    $query = mysqli_query($connection,$sql);
+      if ($query) {
+        echo "Student - " . $student['first_name'] . " " . $student['surname'] . " " . "was added to class";
+      }  else {
+         echo "Error: student could not be added to class";
     }
+  }
+  else {
+    echo "Error: student is already in that class";
+  }
 }
 else {
   echo "Error: More than one student selected";
