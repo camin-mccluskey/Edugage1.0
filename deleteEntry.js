@@ -1,4 +1,6 @@
 function deleteEntry(className,teacher) {
+  var result = confirm("Are you sure you want to delete " + className + "?");
+    if (result) {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
       if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -8,4 +10,5 @@ function deleteEntry(className,teacher) {
 
   xmlhttp.open("GET", "deleteClass.php?q=" + className + "&teacher=" + teacher, true);
   xmlhttp.send();
+  }
 }
