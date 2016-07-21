@@ -34,7 +34,7 @@ $query = mysqli_query($connection,$sql) or die ("Error Could not establish conne
           <td onclick = \"selectentry($id, 'viewclass.php')\">" . $id . "</td>
           <td onclick = \"selectentry($id, 'viewclass.php')\">" . $className . "</td>
           <td onclick = \"selectentry($id, 'viewclass.php')\">" . $entries['subject'] . "</td>
-          <td><span class = 'glyphicon glyphicon-plus' onclick = \"deleteEntry('$className','$login_session')\"</span></td>
+          <td><span class = 'glyphicon glyphicon-minus' onclick = \"deleteEntry('$className','$login_session')\"</span></td>
           </tr>";
   } ?>
 </table>
