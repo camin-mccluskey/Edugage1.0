@@ -1,6 +1,7 @@
 <?php
 include('connect.php');
 include('session.php');
+include 'bootstrap.html';
 set_time_limit (60);
 ?>
 <!DOCTYPE html>
@@ -10,6 +11,9 @@ set_time_limit (60);
 <style media="screen">
   .classEntry:hover {
     border: 1px red solid;
+  }
+  .QuizScoresGraph {
+    border: 2px solid red;
   }
 </style>
 </head>
