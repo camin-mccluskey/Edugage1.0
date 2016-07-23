@@ -12,9 +12,6 @@ set_time_limit (60);
   .classEntry:hover {
     border: 1px red solid;
   }
-  .QuizScoresGraph {
-    border: 2px solid red;
-  }
 </style>
 </head>
 <body>
