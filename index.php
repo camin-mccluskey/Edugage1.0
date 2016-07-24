@@ -6,7 +6,6 @@ if(isset($_SESSION['login_user'])){
 header("location: profile.php");
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,35 +28,38 @@ header("location: profile.php");
   form {
     margin: 0 auto;
     width:250px;
-    padding-top: 5%
+    padding-top: 10px;
   }
 
   input {
     text-align: center;
     border-radius: 5px;
-    border-color:  #f2f2f2;
-    background-color:  #f2f2f2;
+    background-color:  #e6e6e6;
     transition: all 0.5s ease;
   }
 
   input:focus {
     transition: all 0.5s ease;
-    background-color:    #cce6ff;
+    background-color:  #bfbfbf;
   }
 
-  #learnMore {
-    margin-bottom: 10%;
-    margin: 5%;
+  #form {
+    margin: auto;
+    opacity: 0;
+    transition: all 0.7s ease;
   }
 
+  #form:hover {
+    opacity: 1;
+    transition: all 0.7s ease;
+  }
 </style>
-
 </head>
 <body>
 <div class="jumbotron">
   <h1>Welcome to EduGage</h1>
   <p> Log in as an educator or student</p>
-
+<p><span class="glyphicon glyphicon-hand-down"></span></p>
 <div id="form">
   <form id="login_form" action="" method="post" autocomplete="on">
   <p><input id="name" name="username" placeholder="username" type="text" onfocus="this.placeholder=''" onblur="this.placeholder = 'username'" required></p>
@@ -65,10 +67,8 @@ header("location: profile.php");
   <p><input class="btn btn-primary btn-lg" name="submit" type="submit" value=" Login "></p>
   <span><?php echo $error; ?></span>
   </form>
-
-<p><a id="learnMore" class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
 </div>
-
+<p><a id="learnMore" class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
 </div>
 </body>
 
