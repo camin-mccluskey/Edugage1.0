@@ -1,5 +1,6 @@
+<div id="QuizScores">
 <?php include 'DisplayQuizScores.php'; ?>
-
-<div class="QuizScoresGraph">
+</div>
+<div id="QuizScoresGraph">
 <?php include 'displayQuizScoreGraph.php';?>
 </div>

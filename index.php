@@ -57,7 +57,7 @@ header("location: profile.php");
 </head>
 <body>
 <div class="jumbotron">
-  <h1>Welcome to EduGage</h1>
+  <h1></h1>
   <p> Log in as an educator or student</p>
 <p><span class="glyphicon glyphicon-hand-down"></span></p>
 <div id="form">

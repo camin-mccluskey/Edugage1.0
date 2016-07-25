@@ -21,7 +21,7 @@
 			if ($query) {
 	// if user is a student create a table for their quiz results
 	if ($usertype == "student") {
-				$sql = "CREATE TABLE quiz_results ( `id` INT(45) NOT NULL AUTO_INCREMENT , `name` VARCHAR(45) NOT NULL , `time_taken` INT(45) NOT NULL , PRIMARY KEY (`id`))";
+				$sql = "CREATE TABLE quiz_results ( `id` INT(45) NOT NULL AUTO_INCREMENT , `name` VARCHAR(45) NOT NULL , `time_taken` INT(45) NOT NULL , `result` INT(100), PRIMARY KEY (`id`))";
 				$query = mysqli_query($connection, $sql) or die("could not create quiz result table");
 			}
 	// If user is a teacher create a table to store their classes

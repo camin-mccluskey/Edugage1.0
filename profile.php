@@ -1,26 +1,35 @@
 <?php
 include('connect.php');
 include('session.php');
-include 'bootstrap.html';
+include('bootstrap.html');
 set_time_limit (60);
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 <title>Your Home Page</title>
+<link href="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"/>
 <style media="screen">
-  .classEntry:hover {
-    border: 1px red solid;
-  }
+
+#QuizScores {
+  display: block;
+  float: left;
+  border: 1px solid black;
+  width: 50%;
+}
+
+#QuizScoresGraph {
+  display: block;
+  float: right;
+  border: 1px solid black;
+  width: 50%;
+}
+
 </style>
 </head>
 <body>
-  <div class="container-fluid">
-<div id="profile">
-<b id="welcome"> User : <i><?php echo $login_session; ?></i></b><br>
-<b id="logout"><a href="logout.php">Log Out</a></b>
-
-<?php
+<!--Header - external file navbar.html -->
+<?php include('navbar.php');
 $usertype = $_SESSION['usertype'];
 if ($usertype == "student") {
 include('studentprofile.php');
@@ -35,7 +44,5 @@ else {
   echo "Error";
 }
 ?>
-</div>
-</div>
 </body>
 </html>

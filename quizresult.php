@@ -44,7 +44,7 @@ $time_taken = $time_post - $time_pre;
 $quizname = str_replace("_", " ", $quizname);
 // change to user data base
 mysqli_select_db($connection,$pupil);
-$sql = "INSERT INTO quiz_results (quiz_name, score, time_taken) VALUES ('$quizname','$finalscore', '$time_taken')";
+$sql = "INSERT INTO quiz_results (name, result, time_taken) VALUES ('$quizname','$finalscore', '$time_taken')";
 $query = mysqli_query($connection,$sql);
   if ($query) {
     echo "Your score was " . $score . " out of " . $numquestions . " = " . $finalscore . " % <br>";
