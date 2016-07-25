@@ -11,20 +11,42 @@ set_time_limit (60);
 <link href="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"/>
 <style media="screen">
 
-#QuizScores {
-  display: block;
-  float: left;
-  border: 1px solid black;
-  width: 50%;
+.jumbotron {
+  text-align: center;
 }
 
-#QuizScoresGraph {
-  display: block;
-  float: right;
-  border: 1px solid black;
-  width: 50%;
+.icons {
+  margin: 5%;
+  transform: scale(1.0);
+  transition: all 0.75s ease;
 }
 
+.icons:hover {
+  transform: scale(1.25);
+  transition: all 0.75s ease;
+}
+
+#Focus {
+  display: none;
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
+
+table {
+  text-align: center;
+  margin: auto;
+  width: 100%;
+}
+
+td,th {
+  padding: 2%;
+  text-align: center;
+}
+
+tr:hover {
+  background-color: red;
+}
 </style>
 </head>
 <body>
