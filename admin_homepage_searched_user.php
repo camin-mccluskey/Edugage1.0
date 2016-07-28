@@ -20,7 +20,7 @@ session_start();
 	padding: 1px;
 	}
 
-	.searchuser {
+	#searchUser {
 	position: absolute;
 	top: 59px;
 	right: 1px;
@@ -122,7 +122,7 @@ session_start();
   </form>
   </div>
 
-<div class="searchuser">
+<div id="searchUser">
 <?php
 // connect to the db
  include ("connect.php");
@@ -164,8 +164,6 @@ $numrows = mysqli_num_rows($result);
 </script>
 <script type="text/javascript" src="deleteUser.js"></script>
 <a href = "admin_homepage.html"><button btn-default>Reset Search</button><a>
-<div id="deleteConfirm"></div>
-stuff
 </div>
 </body>
 </html>

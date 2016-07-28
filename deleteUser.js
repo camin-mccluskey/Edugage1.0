@@ -6,7 +6,7 @@ function deleteUser(username) {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
   if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-  document.getElementById("deleteConfirm").innerHTML = xmlhttp.responseText;
+  document.getElementById("searchUser").innerHTML = xmlhttp.responseText;
   }
 };
 xmlhttp.open("GET", "deleteUser.php?q=" + username, true);
