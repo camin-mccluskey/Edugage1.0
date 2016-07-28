@@ -19,10 +19,12 @@
 		$query = mysqli_query($connection,$sql);
 		mysqli_select_db($connection,$username);
 			if ($query) {
-	// if user is a student create a table for their quiz results
+	// if user is a student create a table for their quiz results and the classes they're a member of
 	if ($usertype == "student") {
 				$sql = "CREATE TABLE quiz_results ( `id` INT(45) NOT NULL AUTO_INCREMENT , `name` VARCHAR(45) NOT NULL , `time_taken` INT(45) NOT NULL , `result` INT(100), PRIMARY KEY (`id`))";
 				$query = mysqli_query($connection, $sql) or die("could not create quiz result table");
+				$sql = "CREATE TABLE classes ( `id` INT(45) NOT NULL AUTO_INCREMENT , `name` VARCHAR(45) NOT NULL , `subject` VARCHAR(45) NOT NULL , `teacher` VARCHAR(45) NOT NULL, PRIMARY KEY (`id`))";
+				$query = mysqli_query($connection, $sql) or die("could not create classes table");
 			}
 	// If user is a teacher create a table to store their classes
 	elseif ($usertype == "teacher") {
@@ -43,6 +45,6 @@
 					}
 				}
 		else {
-		echo "user exists, please chose another username";
+		echo "user exists, please choose another username";
 	}
 ?>

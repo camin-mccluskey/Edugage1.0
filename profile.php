@@ -11,8 +11,52 @@ set_time_limit (60);
 <link href="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"/>
 <style media="screen">
 
-.jumbotron {
+ #triangle1 {
+   display: none;
+   z-index: 0;
+   position: absolute;
+   margin-left: 20.7%;
+   margin-top: -3.5%;
+   padding-top: 0px;
+   width: 0;
+   height: 0;
+   border-bottom: 50px solid #99ddff;
+   border-left: 70px solid transparent;
+   border-right: 70px solid transparent;
+}
+
+#triangle2 {
+  display: none;
+  z-index: 0;
+  position: absolute;
+  margin-left: 43%;
+  margin-top: -3.5%;
+  padding-top: 0px;
+  width: 0;
+  height: 0;
+  border-bottom: 50px solid #99ddff;
+  border-left: 70px solid transparent;
+  border-right: 70px solid transparent;
+}
+
+#triangle3 {
+  display: none;
+  z-index: 0;
+  position: absolute;
+  margin-left: 64.7%;
+  margin-top: -3.5%;
+  padding-top: 0px;
+  width: 0;
+  height: 0;
+  border-bottom: 50px solid #99ddff;
+  border-left: 70px solid transparent;
+  border-right: 70px solid transparent;
+}
+
+.content {
   text-align: center;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 .icons {
@@ -27,10 +71,22 @@ set_time_limit (60);
 }
 
 #Focus {
+  background-color: #99ddff;
+  position: absolute;
+  z-index: 1;
   display: none;
-  margin: auto;
-  width: 50%;
+  margin-top: 0%;
+  width: 100%;
   text-align: center;
+  height: 100%;
+}
+
+#x-button {
+  transform: scale(0.5);
+  z-index: 2;
+  position: relative;;
+  padding: 0px;
+  margin-left: 95%;
 }
 
 table {
@@ -45,7 +101,7 @@ td,th {
 }
 
 tr:hover {
-  background-color: red;
+  background-color:  #b3e6ff;
 }
 </style>
 </head>

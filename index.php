@@ -65,7 +65,7 @@ header("location: profile.php");
   <p><input id="name" name="username" placeholder="username" type="text" onfocus="this.placeholder=''" onblur="this.placeholder = 'username'" required></p>
   <p><input id="password" name="password" placeholder="password" type="password" onfocus="this.placeholder=''" onblur="this.placeholder = 'password'"required></p>
   <p><input class="btn btn-primary btn-lg" name="submit" type="submit" value=" Login "></p>
-  <span><?php echo $error; ?></span>
+  <span style="text-align: center;"><?php echo $error; ?></span>
   </form>
 </div>
 <p><a id="learnMore" class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
