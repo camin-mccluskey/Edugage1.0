@@ -140,14 +140,15 @@ $numrows = mysqli_num_rows($result);
       for ($i = 0; $i < $numrows; $i++) {
         $row = mysqli_fetch_assoc($result);
         $username = $row['username'];
-			    echo "<tr onclick= \"selectentry('$username')\">
-      <td>" . $row['id'] . "</td>
-      <td>" . $row['first_name'] . "</td>
-      <td>" . $row['surname'] . "</td>
-      <td>" . $row['username'] . "</td>
-      <td>" . $row['usertype'] . "</td>
-      <td>" . $row['year'] . "</td>
-      <td>" . $row['form'] . "</td></tr>";
+			    echo "<tr>
+      <td onclick= \"selectentry('$username')\">" . $row['id'] . "</td>
+      <td onclick= \"selectentry('$username')\">" . $row['first_name'] . "</td>
+      <td onclick= \"selectentry('$username')\">" . $row['surname'] . "</td>
+      <td onclick= \"selectentry('$username')\">" . $row['username'] . "</td>
+      <td onclick= \"selectentry('$username')\">" . $row['usertype'] . "</td>
+      <td onclick= \"selectentry('$username')\">" . $row['year'] . "</td>
+      <td onclick= \"selectentry('$username')\">" . $row['form'] . "</td>
+      <td onclick= \"deleteUser('$username')\"> <span class = 'glyphicon glyphicon-minus'></span></td></tr>";
 }
     echo "</table><br>";
 	}
@@ -161,7 +162,10 @@ $numrows = mysqli_num_rows($result);
     window.location = "viewprofile.php";
 }
 </script>
+<script type="text/javascript" src="deleteUser.js"></script>
 <a href = "admin_homepage.html"><button btn-default>Reset Search</button><a>
+<div id="deleteConfirm"></div>
+stuff
 </div>
 </body>
 </html>
