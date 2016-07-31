@@ -3,8 +3,8 @@
 <!--Main div with (at present) 3 icons -->
 <div class="content">
   <a href="#"><img class="icons" onclick="DisplayQuizScores(triangle1)" src="user.png" alt="" /></a>
-  <a href="#"><img class="icons" onclick="DisplayQuizScores(triangle2)" src="quiz.png" alt="" /></a>
-  <a href="#"><img class="icons" onclick="DisplayQuizScores(triangle3)" src="notes.png" alt="" /></a>
+  <a href="#"><img class="icons" onclick="DisplayQuizScores(triangle2)" src="notes.png" alt="" /></a>
+  <a href="#"><img class="icons" onclick="DisplayQuizScores(triangle3)" src="quiz.png" alt="" /></a>
 </div>
 <!-- The nice little triangular shape that appears -->
   <div id="triangle1"></div>
@@ -38,13 +38,13 @@
         document.getElementById('Focus').style.display = 'block';
         document.getElementById('triangle2').style.display = 'block';
         // generate content for quizes dropdown
-        loadContent("quizes", "content", "studentData.php");
+        loadContent("notes", "content", "studentData.php");
       }
       else {
         document.getElementById('Focus').style.display = 'block';
         document.getElementById('triangle3').style.display = 'block';
         // generate content for notes dropdown
-        loadContent("notes", "content", "studentData.php");
+        loadContent("quizes", "content", "studentData.php");
       }
   }
 function closeDropdown() {

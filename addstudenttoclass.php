@@ -19,7 +19,7 @@ $username = $student['username'];
 // Switch DB to classes
 mysqli_select_db($connection,"classes");
 
-// Check that only one user is selected (hopefully unnessecary), then add that user to the class
+// Check that only one user is selected, then add that user to the class
 $numrows = mysqli_num_rows($query);
 if ($numrows == 1) {
 
@@ -29,6 +29,11 @@ $query = mysqli_query($connection,$sql);
 $userpresent = mysqli_num_rows($query);
   if ($userpresent == 0) {
     $sql = "INSERT INTO $classname (id,first_name,surname,username) VALUES ($id, '$firstname', '$surname', '$username')";
+    $query = mysqli_query($connection,$sql) or die("Error: Student could not be added to class");
+
+    //Add class to the users 'classes' table
+    mysqli_select_db($connection,$username);
+    $sql = "INSERT INTO classes (id, name) VALUES ($id, '$classname')";
     $query = mysqli_query($connection,$sql);
       if ($query) {
         echo "Student - " . $student['first_name'] . " " . $student['surname'] . " " . "was added to class";

@@ -25,7 +25,7 @@
 				mysqli_select_db($connection,$username) or die("Error: Could not connect to User database");
 				$sql = "CREATE TABLE quiz_results ( `id` INT(45) NOT NULL AUTO_INCREMENT , `name` VARCHAR(45) NOT NULL , `time_taken` INT(45) NOT NULL , `result` INT(100), PRIMARY KEY (`id`))";
 				$query = mysqli_query($connection, $sql) or die("could not create quiz result table");
-				$sql = "CREATE TABLE classes ( `id` INT(45) NOT NULL AUTO_INCREMENT , `name` VARCHAR(45) NOT NULL , `subject` VARCHAR(45) NOT NULL , `teacher` VARCHAR(45) NOT NULL, PRIMARY KEY (`id`))";
+				$sql = "CREATE TABLE classes ( `id` INT(45) NOT NULL AUTO_INCREMENT , `name` VARCHAR(45) NOT NULL, PRIMARY KEY (`id`))";
 				$query = mysqli_query($connection, $sql) or die("could not create classes table");
 			}
 	// If user is a teacher create a table to store their classes
