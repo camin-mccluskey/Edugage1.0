@@ -12,11 +12,13 @@ mysqli_select_db($connection,"classes");
 
 // Delete entry from master list and from teachers db
 $sql = "DROP TABLE $className";
+$query = mysqli_query($connection,$sql) or die ("Error: Could not delete class from database");
+$sql = "DELETE FROM masterlist WHERE name = '$className' ";
 $query = mysqli_query($connection,$sql);
   if ($query) {
     // Connect to teachers database
       mysqli_select_db($connection, $teacher) or die('Couldn\'t connect to teacher database');
-      $sql = "DELETE FROM classlist WHERE name = '$className' "; // Underscores need to be out of this
+      $sql = "DELETE FROM classlist WHERE name = '$className' ";
       $query = mysqli_query($connection,$sql) or die('Couldn\'t delete class from master list');
 
       // Assuming both queries pass, the class will be fully deleted and we need to now display the updated My Classes table
@@ -42,6 +44,6 @@ $query = mysqli_query($connection,$sql);
       }
       echo "</table>";
 }   else {
-  echo "Error, could not delete selection";
+  echo "Error: could not delete selection";
 }
  ?>
