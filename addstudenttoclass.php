@@ -1,7 +1,9 @@
 <?php
-// ID of student Retrieved from onclick() event handler
+include 'session.php';
+// ID of student Retrieved from onclick() event handler through addstudenttoclass.js
 $id = $_REQUEST["q"];
 $classname = $_REQUEST["classname"];
+$subject = $_REQUEST["subject"];
 
 // Connect to db
 include 'connect.php';
@@ -33,7 +35,7 @@ $userpresent = mysqli_num_rows($query);
 
     //Add class to the users 'classes' table
     mysqli_select_db($connection,$username);
-    $sql = "INSERT INTO classes (id, name) VALUES ($id, '$classname')";
+    $sql = "INSERT INTO classes (id, name, teacher, subject) VALUES ($id, '$classname', '$login_session', '$subject')";
     $query = mysqli_query($connection,$sql);
       if ($query) {
         echo "Student - " . $student['first_name'] . " " . $student['surname'] . " " . "was added to class";

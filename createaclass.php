@@ -62,7 +62,7 @@ if ($query) {
           <td>" . $entries['surname'] . "</td>
           <td>" . $entries['year'] . "</td>
           <td>" . $entries['form'] . "</td>
-          <td><span class = 'glyphicon glyphicon-plus' onclick = \"addstudent($entries[id],'$classname')\"</span></td>
+          <td><span class = 'glyphicon glyphicon-plus' onclick = \"addstudent($entries[id],'$classname','$subject')\"</span></td>
           </tr>";
   }
   echo "</table>";
