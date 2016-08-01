@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default">
-  <di<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -15,8 +15,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Profile<span class="sr-only">(current)</span></a></li>
-        <li><a class="search_quizes" href="quizhomepage.html">Search A Quiz</a></li>
+        <li id="pill1" class=""><a href="#">Profile<span class="sr-only">(current)</span></a></li>
+        <li><a id="pill2" class="" href="quizhomepage.html">Search A Quiz</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a><?php echo $login_session ?></a></li>

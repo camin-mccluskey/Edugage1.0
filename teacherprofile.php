@@ -1,3 +1,10 @@
+<!--Set the navar bar up for a teacher -->
+<script type="text/javascript">
+  function setActive() {
+    document.getElementById('pill1').className = "active";
+  }
+  window.onLoad = setActive();
+</script>
 <?php
 include 'bootstrap.html';
 echo "<br> <a href='createquiz.php'> Create Quiz </a>";

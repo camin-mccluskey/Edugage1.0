@@ -1,5 +1,11 @@
 <!--This page populates the profile.php page with content if user is a student -->
-
+<!--Set the navar bar up for a teacher -->
+<script type="text/javascript">
+  function setActive() {
+    document.getElementById('pill1').className = "active";
+  }
+  window.onLoad = setActive();
+</script>
 <!--Main div with (at present) 3 icons -->
 <div class="content">
   <a href="#"><img class="icons" onclick="DisplayQuizScores(triangle1)" src="user.png" alt="" /></a>

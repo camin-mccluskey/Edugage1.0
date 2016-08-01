@@ -7,7 +7,7 @@ include ('quiz.php');
   <head>
     <meta charset="utf-8">
     <title>Create A New Quiz</title>
-    <?php include 'bootstrap.html'; ?>
+    <?php include 'bootstrap.html'; include 'navbar.php';?>
     <style media="screen">
       .quiztype {
         border: 2px solid black;
