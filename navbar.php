@@ -39,8 +39,14 @@
         Actions
         <div id="dropdown-content">
           <p>hello world</p>
-          <p><a id="pill2" class="" href="quizhomepage.html">Search A Quiz</a></p>
-          <p>3rd reich</p>
+          <!-- if the user is a teacher give them those dropdowns -->
+          <?php
+            if ($user_type == "teacher") {
+              echo "<p><a id='pill2' class='' href='quizhomepage.html'>Search a Quiz</a></p>
+              <p><a id = 'pill2' class='' href='createquiz.php'>Create a New Quiz</a></p>
+              <p><a id = 'pill3' class='' href='createClassForm.html'>Create a New Class</a></p>";
+            }
+          ?>
         </div>
       </li>
       </ul>
